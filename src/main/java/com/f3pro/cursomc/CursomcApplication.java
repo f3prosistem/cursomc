@@ -58,11 +58,12 @@ public class CursomcApplication implements CommandLineRunner {
         Cidade c1 = new Cidade(null, "Uberlândia", est1);
         Cidade c2 = new Cidade(null, "São Paulo", est2);
         Cidade c3 = new Cidade(null, "Campinas", est2);
+        Cidade c4 = new Cidade(null, "Vargem Grande Paulista", est2);
 
         est1.getCidades().addAll(Arrays.asList(c1));
         est2.getCidades().addAll(Arrays.asList(c2, c3));
         estadoRepository.saveAll(Arrays.asList(est1, est2));
-        cidadeRepository.saveAll(Arrays.asList(c1, c2, c3));
+        cidadeRepository.saveAll(Arrays.asList(c1, c2, c3,c4));
 
     }
 }
