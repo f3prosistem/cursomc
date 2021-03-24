@@ -7,6 +7,7 @@ public class StandarError implements Serializable {
 
     private Integer status;
     private String msg;
+    
     private Long timeStamp;
 
     public StandarError(Integer status, String msg, Long timeStamp) {
