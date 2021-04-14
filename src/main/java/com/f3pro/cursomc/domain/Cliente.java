@@ -25,125 +25,124 @@ public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String nome;
-	private String email;
-	private String cpfOuCnpj;
-	private Integer tipo;
+    private Integer id;
+    private String nome;
+    private String email;
+    private String cpfOuCnpj;
+    private Integer tipo;
 
-	
-	@OneToMany(mappedBy = "cliente")
-	private List<Endereco> enderecos = new ArrayList<>();
-	
-	@ElementCollection
-	@CollectionTable(name = "TELEFONE")
-	private Set<String> telefones = new HashSet<>();
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "cliente")
-	private List<Pedido> pedidos = new ArrayList<>();
-	
-	public Cliente() {}
+    @OneToMany(mappedBy = "cliente")
+    private List<Endereco> enderecos = new ArrayList<>();
 
-	public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.email = email;
-		this.cpfOuCnpj = cpfOuCnpj;
-		this.tipo = tipo.getCod();
-	}
+    @ElementCollection
+    @CollectionTable(name = "TELEFONE")
+    private Set<String> telefones = new HashSet<>();
 
-	public Integer getId() {
-		return id;
-	}
+    @JsonIgnore
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos = new ArrayList<>();
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Cliente() {
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
+        super();
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.cpfOuCnpj = cpfOuCnpj;
+        this.tipo = tipo.getCod();
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public String getCpfOuCnpj() {
-		return cpfOuCnpj;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setCpfOuCnpj(String cpfOuCnpj) {
-		this.cpfOuCnpj = cpfOuCnpj;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public TipoCliente getTipo() {
-		return TipoCliente.toEnum(tipo);
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setTipo(TipoCliente tipo) {
-		this.tipo = tipo.getCod();
-	}
+    public String getCpfOuCnpj() {
+        return cpfOuCnpj;
+    }
 
-	public List<Endereco> getEnderecos() {
-		return enderecos;
-	}
+    public void setCpfOuCnpj(String cpfOuCnpj) {
+        this.cpfOuCnpj = cpfOuCnpj;
+    }
 
-	public void setEnderecos(List<Endereco> enderecos) {
-		this.enderecos = enderecos;
-	}
+    public TipoCliente getTipo() {
+        return TipoCliente.toEnum(tipo);
+    }
 
-	public Set<String> getTelefones() {
-		return telefones;
-	}
+    public void setTipo(TipoCliente tipo) {
+        this.tipo = tipo.getCod();
+    }
 
-	public void setTelefones(Set<String> telefones) {
-		this.telefones = telefones;
-	}
+    public List<Endereco> getEnderecos() {
+        return enderecos;
+    }
 
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
+    }
 
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
+    public Set<String> getTelefones() {
+        return telefones;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
+    public void setTelefones(Set<String> telefones) {
+        this.telefones = telefones;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Cliente other = (Cliente) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
-	
-	
-	
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Cliente other = (Cliente) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
+
 
 }

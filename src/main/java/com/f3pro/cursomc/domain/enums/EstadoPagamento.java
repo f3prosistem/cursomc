@@ -2,9 +2,9 @@ package com.f3pro.cursomc.domain.enums;
 
 public enum EstadoPagamento {
 
-    PENDENTE(1,"Pendente"),
-    QUITADO(2,"Quitado"),
-    CANCELADO(3,"Cancelado");
+    PENDENTE(1, "Pendente"),
+    QUITADO(2, "Quitado"),
+    CANCELADO(3, "Cancelado");
 
     private int cod;
     private String descricao;
@@ -17,21 +17,22 @@ public enum EstadoPagamento {
     public int getCod() {
         return cod;
     }
+
     public String getDescricao() {
         return descricao;
     }
 
     //varendo os Enums de acordo com codigo
     public static EstadoPagamento toEnum(Integer cod) {
-        if(cod ==null) {
+        if (cod == null) {
             return null;
         }
-        for(EstadoPagamento x : EstadoPagamento.values()) {
-            if(cod.equals(x.getCod())) {
+        for (EstadoPagamento x : EstadoPagamento.values()) {
+            if (cod.equals(x.getCod())) {
                 return x;
             }
         }
-        throw new IllegalArgumentException("Id inválido: " +cod);
+        throw new IllegalArgumentException("Id inválido: " + cod);
     }
 
 

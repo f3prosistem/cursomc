@@ -19,12 +19,13 @@ public class Cidade implements Serializable {
     private Integer id;
     private String nome;
 
-   
+
     @ManyToOne
     @JoinColumn(name = "estado_id")
     private Estado estado;
 
-    public  Cidade(){}
+    public Cidade() {
+    }
 
     public Cidade(Integer id, String nome, Estado estado) {
         this.id = id;
